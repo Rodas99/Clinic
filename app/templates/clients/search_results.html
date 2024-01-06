@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block header %}
+<h1>Search Results</h1>
+{% endblock %}
+
+{% block content %}
+<div class="clients">
+    <h2>Matching Clients</h2>
+    <ul>
+        {% for client in clients %}
+        <li>
+            <h3>{{ client.name }}</h3>
+            <p>VAT: {{ client.vat }}</p>
+            <p>Birth Date: {{ client.birth_date }}</p>
+            <p>Address: {{ client.street }}, {{ client.city }}, {{ client.zip }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

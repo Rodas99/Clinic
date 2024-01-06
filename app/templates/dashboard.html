@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+{% extends 'base.html' %}
+{% block content %}
+<body>
+    <h1>Consultation Dashboard</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>VAT</th>
+                <th>Date</th>
+                <th>ZIP</th>
+                <th>Number of Diagnostic Codes</th>
+                <th>Number of Procedures</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dashboard in dashboard %}
+            <tr>
+                <td>{{ dashboard.vat }}</td>
+                <td>{{ dashboard.date }}</td>
+                <td>{{ dashboard.zip }}</td>
+                <td>{{ dashboard.num_diagnostic_codes }}</td>
+                <td>{{ dashboard.num_procedures }}</td>
+            </tr>
+			{% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+{% endblock %}

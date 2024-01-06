@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Update Appointment{% endblock %}
+
+{% block content %}
+<div class="update-appointment">
+    <form method="POST" action="{{ url_for('update_appointment', doctor_vat=doctor_vat, date_timestamp=date_timestamp) }}">
+	
+		<!-- [0] to acess only one appointment/prescription -->
+	    <h3>Update Appointment:</h3>
+        <label for="soap_s">SOAP-S:</label>
+        <textarea id="soap_s" name="soap_s" rows="4" cols="50">{{ appointment_info[0].soap_s }}</textarea><br><br>
+		<label for="soap_o">SOAP-O:</label>
+        <textarea id="soap_o" name="soap_o" rows="4" cols="50">{{ appointment_info[0].soap_o }}</textarea><br><br>
+		<label for="soap_a">SOAP-A:</label>
+        <textarea id="soap_a" name="soap_a" rows="4" cols="50">{{ appointment_info[0].soap_a }}</textarea><br><br>
+		<label for="soap_p">SOAP-P:</label>
+        <textarea id="soap_p" name="soap_p" rows="4" cols="50">{{ appointment_info[0].soap_p }}</textarea><br><br>
+		
+		
+		<h3>Update Prescription:</h3>
+		<label for="name">Name:</label>
+        <textarea id="name" name="name" rows="4" cols="50">{{ prescription_info[0].name }}</textarea><br><br>
+		<label for="lab">Lab:</label>
+        <textarea id="lab" name="lab" rows="4" cols="50">{{ prescription_info[0].lab }}</textarea><br><br>
+		<label for="dosage">Dosage:</label>
+        <textarea id="dosage" name="dosage" rows="4" cols="50">{{ prescription_info[0].dosage }}</textarea><br><br>
+		<label for="description">Description:</label>
+        <textarea id="description" name="description" rows="4" cols="50">{{ prescription_info[0].description }}</textarea><br><br>
+        
+        
+        <button type="submit">Update Appointment</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Search Clients{% endblock %}
+
+{% block header %}
+<h1>Search Clients</h1>
+{% endblock %}
+
+{% block content %}
+<form method="POST" action="{{ url_for('search_clients') }}">
+    <input type="text" name="search_query" placeholder="Search by name">
+    <button type="submit">Search</button>
+</form>
+{% endblock %}

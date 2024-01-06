@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Check Doctor Availability{% endblock %}
+
+
+{% block content %}
+<form method="POST" action="{{ url_for('check_availability') }}">
+    <label for="appointment_date">Appointment Date:</label>
+    <input type="date" id="appointment_date" name="appointment_date">
+
+    <label for="appointment_time">Appointment Time:</label>
+    <input type="time" id="appointment_time" name="appointment_time">
+
+    <button type="submit">Check Availability</button>
+</form>
+{% endblock %}

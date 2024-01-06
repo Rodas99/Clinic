@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Appointment Details{% endblock %}
+
+{% block content %}
+<div class="appointment-details">
+    <h2>Details of the Appointment</h2>
+    {% for info in appointment_info %}
+    <p>SOAP-S: {{ info.soap_s }}</p>
+    <p>SOAP-O: {{ info.soap_o }}</p>
+    <p>SOAP-A: {{ info.soap_a }}</p>
+    <p>SOAP-P: {{ info.soap_p }}</p>
+    {% endfor %}
+	
+    <h3>Prescription Details:</h3>
+    {% for prescription in prescription_info %}
+    <p>Name: {{ prescription.name }}</p>
+    <p>Lab: {{ prescription.lab }}</p>
+    <p>Dosage: {{ prescription.dosage }}</p>
+    <p>Description: {{ prescription.description }}</p>
+    {% endfor %}
+	
+	<a href="{{ url_for('update_appointment', doctor_vat=doctor_vat, date_timestamp=appointment_info[0].c_date_timestamp) }}">
+		<button>Edit Appointment</button>
+	</a>
+
+</div>
+{% endblock %}

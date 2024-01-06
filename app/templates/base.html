@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %} - Clinic Management</title>
+</head>
+<body>
+    <nav>
+        <h1><a href="/">Clinic Management</a></h1>
+        <ul>
+			<li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('clients') }}">Clients</a></li>
+			<li><a href="{{ url_for('check_availability') }}">Check Doctor Availability</a></li>
+        </ul>
+    </nav>
+    <section class="content">
+        <header>
+            {% block header %}{% endblock %}
+        </header>
+        {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+        {% endfor %}
+        {% block content %}{% endblock %}
+    </section>
+</body>
+</html>

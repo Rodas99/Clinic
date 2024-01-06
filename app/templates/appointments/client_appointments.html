@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Client Appointments{% endblock %}
+
+{% block content %}
+<div class="client-appointments">
+    <h2>Appointments for Client</h2>
+    <ul>
+        {% for appointment in appointments %}
+        <li>
+            <h3>Doctor: {{ appointment.doctor_name }}</h3>
+            <p>Date & Time: {{ appointment.date_timestamp }}</p>
+            <p>Description: {{ appointment.description }}</p>
+            <form method="GET" action="{{ url_for('appointment_details', doctor_vat=appointment.vat_doctor, date_timestamp=appointment.date_timestamp) }}">
+                <button type="submit">View Details</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
